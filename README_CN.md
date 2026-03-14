@@ -104,6 +104,7 @@ claude
 |------|------|------|------|-----------|
 | Skill | 🏗️ [`dse-loop`](skills/dse-loop/SKILL.md) | 体系结构 / EDA | 自动设计空间探索——迭代运行、分析、调参（gem5、Yosys 等）。适用于任何有可调参数的领域 | 否 |
 | Skill | 🤖 [`idea-discovery-robot`](skills/idea-discovery-robot/SKILL.md) | 机器人 / 具身智能 | 工作流 1 适配版——按 embodiment、benchmark、sim2real 路径和安全约束生成、筛选 idea | 是 |
+| External | 🔬 [Auto-Research-Refine](https://github.com/zjYao36/Auto-Research-Refine) | 通用 | 把模糊 idea 变成可执行研究方案——衔接 `/idea-discovery` 和 `/auto-review-loop`。Claude + GPT-5.4 迭代精炼 | 是 |
 
 ## 🔄 工作流
 

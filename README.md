@@ -104,6 +104,7 @@ Domain-specific skills and external projects contributed by the community. PRs w
 |------|------|--------|-------------|-----------|
 | Skill | 🏗️ [`dse-loop`](skills/dse-loop/SKILL.md) | Architecture / EDA | Autonomous design space exploration — iteratively run, analyze, and tune parameters (gem5, Yosys, etc.). Works for any domain with tunable parameters | No |
 | Skill | 🤖 [`idea-discovery-robot`](skills/idea-discovery-robot/SKILL.md) | Robotics / Embodied AI | Workflow 1 adaptation — grounds idea discovery in embodiment, benchmark, sim2real path, and real-robot safety constraints | Yes |
+| External | 🔬 [Auto-Research-Refine](https://github.com/zjYao36/Auto-Research-Refine) | General | Turn a vague idea into an executable research proposal — bridges `/idea-discovery` and `/auto-review-loop`. Claude + GPT-5.4 iterative refinement | Yes |
 
 ## 🔄 Workflows
 

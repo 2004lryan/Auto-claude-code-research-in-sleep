@@ -24,7 +24,7 @@
 
 - **2026-03-15** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🔀 **自带模型！** [任意 OpenAI 兼容 API](#-替代模型组合) 均可作为审查器，通过 [`llm-chat`](mcp-servers/llm-chat/) MCP 服务器。GLM、MiniMax、Kimi、LongCat、DeepSeek 已全部测试——**完全不需要 Claude 或 OpenAI API**
 - **2026-03-15** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🐾 **[OpenClaw 适配指南](docs/OPENCLAW_ADAPTATION.md)** — 无需 Claude Code slash skills，在 [OpenClaw](https://github.com/All-Hands-AI/OpenHands) 中使用 ARIS 科研工作流
-- **2026-03-15** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 📐 **[`proof-writer`](skills/proof-writer/SKILL.md)** — 社区 skill，严格定理证明撰写。📚 **反幻觉引用** — `/paper-write` 现可从 [DBLP](https://dblp.org)/[CrossRef](https://www.crossref.org) 获取真实 BibTeX，替代 LLM 生成（`DBLP_BIBTEX = true`）。零安装
+- **2026-03-15** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 📐 **[`proof-writer`](skills/proof-writer/SKILL.md)** — 社区 skill，严格定理证明撰写。📚 **反幻觉引用** — `/paper-write` 现从 [DBLP](https://dblp.org)/[CrossRef](https://www.crossref.org) 获取真实 BibTeX，替代 LLM 生成——默认开启，零安装
 - **2026-03-14** — 📱 [飞书集成](#-飞书lark-集成可选)：三种模式（关闭/推送/交互），实验完成、review 出分、checkpoint 审批均可手机收通知
 - **2026-03-13** — 🛑 Human-in-the-loop：所有工作流支持 `AUTO_PROCEED` 检查点，全自动或逐步审批
 - **2026-03-12** — 🔗 [Zotero](#-zotero-集成可选) + [Obsidian](#-obsidian-集成可选) + 本地 PDF + arXiv/Scholar：多源文献检索 + 跨模型新颖性验证
@@ -58,7 +58,7 @@ claude
 > | `AUTO_PROCEED` | `true` | 在 idea 选择关卡自动继续。设为 `false` 可在花 GPU 前手动挑选 idea |
 > | `human checkpoint` | `false` | 每轮 review 后暂停，让你查看分数、给出修改意见、跳过特定修复或提前终止 |
 > | `arxiv download` | `false` | 文献调研时下载最相关的 arXiv PDF。为 `false` 时仅获取元数据（标题、摘要、作者） |
-> | `DBLP_BIBTEX` | `false` | 从 [DBLP](https://dblp.org)/[CrossRef](https://www.crossref.org) 获取真实 BibTeX，替代 LLM 生成。杜绝幻觉引用。零安装 |
+> | `DBLP_BIBTEX` | `true` | 从 [DBLP](https://dblp.org)/[CrossRef](https://www.crossref.org) 获取真实 BibTeX，替代 LLM 生成。杜绝幻觉引用。零安装 |
 >
 > ```
 > /research-pipeline "你的课题" — AUTO_PROCEED: false                          # 在 idea 选择关卡暂停

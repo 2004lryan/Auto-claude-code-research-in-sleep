@@ -28,6 +28,7 @@
 
 ## 📢 最近更新
 
+- **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🎤 **[`paper-slides`](skills/paper-slides/SKILL.md)** — 会议演讲幻灯片（beamer → PDF + PPTX），含完整演讲稿、speaker notes、Q&A 预案。根据报告类型自动调整 slide 数量（oral/spotlight/poster-talk/invited）。工作流 3 的后续展示环节。社区贡献 by [@dengzhe-hou](https://github.com/dengzhe-hou)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🖱️ **[Cursor 适配指南](docs/CURSOR_ADAPTATION.md)** — 在 [Cursor](https://www.cursor.com/) 中使用 ARIS skills，`@` 引用、MCP 配置、状态文件恢复。社区贡献 by [@YecanLee](https://github.com/YecanLee)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🤖 **[Codex CLI 原生 skills](skills/skills-codex/)** — 完整 31 个 ARIS skill 的 Codex CLI 版本，用 `spawn_agent`。社区贡献 by [@Falling-Flower](https://github.com/Falling-Flower) & [@No-518](https://github.com/No-518)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 📝 **[`grant-proposal`](skills/grant-proposal/SKILL.md)** — 从研究 idea 自动生成结构化基金申请书。支持 9 个资助机构：科研費/KAKENHI（日本）、NSF（美国）、国自然/NSFC（含面上/青年/优青/杰青/海外优青/重点）、ERC（欧盟）、DFG、SNSF、ARC、NWO 及通用格式。串联 `/research-lit` → `/novelty-check` → `/research-review` → `/paper-illustration`。社区贡献 by [@dengzhe-hou](https://github.com/dengzhe-hou)
@@ -164,6 +165,7 @@ claude
 | 🧪 [`experiment-plan`](skills/experiment-plan/SKILL.md) | 通用 | claim-driven 实验路线图，含 ablation、预算和执行顺序 | 否 |
 | 🧭 [`research-refine-pipeline`](skills/research-refine-pipeline/SKILL.md) | 通用 | 一条龙：`/research-refine` → `/experiment-plan` | 是 |
 | 📝 [`grant-proposal`](skills/grant-proposal/SKILL.md) | 通用 | 基金申请书（科研費/NSF/国自然/ERC/DFG/SNSF/ARC/NWO） | 是 |
+| 🎤 [`paper-slides`](skills/paper-slides/SKILL.md) | 通用 | 会议演讲幻灯片（beamer → PDF + PPTX），含完整演讲稿、speaker notes、Q&A 预案 | 是 |
 | 📐 [`proof-writer`](skills/proof-writer/SKILL.md) | ML 理论 | 严格定理/引理证明撰写——可行性分类、依赖图谱 | 否 |
 | 📡 [`comm-lit-review`](skills/comm-lit-review/SKILL.md) | 通信 / 无线 | 通信领域文献检索——IEEE/ACM 优先、venue 分层、PHY/MAC/NTN 分类 | 否 |
 | 🏗️ [`dse-loop`](skills/dse-loop/SKILL.md) | 体系结构 / EDA | 自动设计空间探索——迭代调参（gem5、Yosys 等） | 否 |

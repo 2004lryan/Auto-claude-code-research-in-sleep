@@ -28,6 +28,7 @@
 
 ## 📢 最近更新
 
+- **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🤖 **[Codex CLI 原生 skills](skills/skills-codex/)** — 全部 24 个 ARIS skill 重写为 [OpenAI Codex CLI](https://github.com/openai/codex) 版本，用 `spawn_agent` 替代 MCP 调用。即插即用 `skills/skills-codex/` + LaTeX 模板。社区贡献 by [@Falling-Flower](https://github.com/Falling-Flower)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 📝 **[`grant-proposal`](skills/grant-proposal/SKILL.md)** — 从研究 idea 自动生成结构化基金申请书。支持 9 个资助机构：科研費/KAKENHI（日本）、NSF（美国）、国自然/NSFC（含面上/青年/优青/杰青/海外优青/重点）、ERC（欧盟）、DFG、SNSF、ARC、NWO 及通用格式。串联 `/research-lit` → `/novelty-check` → `/research-review` → `/paper-illustration`。社区贡献 by [@dengzhe-hou](https://github.com/dengzhe-hou)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🎨 **[`paper-illustration`](skills/paper-illustration/SKILL.md)** — AI 生成出版级架构图/方法示意图。Claude 规划 → Gemini 渲染 → 迭代优化至 ≥9 分。集成到工作流 3（`illustration: true`，需 `GEMINI_API_KEY`）。基于 [PaperBanana](https://github.com/dwzhu-pku/PaperBanana)。社区贡献 by [@Joseph-li343](https://github.com/Joseph-li343)
   <details><summary>预览 demo</summary><br><img src="assets/paper_illustration_demo.png" width="600" alt="paper-illustration 示例" /></details>
@@ -149,7 +150,7 @@ claude
 
 🎉 **社区 Skills（8 个）：** [research-refine](skills/research-refine/SKILL.md) · [experiment-plan](skills/experiment-plan/SKILL.md) · [grant-proposal](skills/grant-proposal/SKILL.md) · [proof-writer](skills/proof-writer/SKILL.md) · [comm-lit-review](skills/comm-lit-review/SKILL.md) · [dse-loop](skills/dse-loop/SKILL.md) · [idea-discovery-robot](skills/idea-discovery-robot/SKILL.md) · [paper-illustration](skills/paper-illustration/SKILL.md)
 
-🌐 **外部项目 & 文档（4 个）：** [open-source-hardening-skills](https://github.com/zeyuzhangzyz/open-source-hardening-skills) · [CitationClaw](https://github.com/VisionXLab/CitationClaw) · [OpenClaw 适配指南](docs/OPENCLAW_ADAPTATION.md) · [paper-illustration](skills/paper-illustration/SKILL.md)
+🌐 **外部项目 & 文档（5 个）：** [open-source-hardening-skills](https://github.com/zeyuzhangzyz/open-source-hardening-skills) · [CitationClaw](https://github.com/VisionXLab/CitationClaw) · [OpenClaw 适配指南](docs/OPENCLAW_ADAPTATION.md) · [paper-illustration](skills/paper-illustration/SKILL.md)
 
 > 🙌 感谢每一位贡献者！为了 README 的可读性，下方表格折叠展示——但每个 skill 和项目都同样珍贵。欢迎 PR！
 
@@ -170,7 +171,7 @@ claude
 </details>
 
 <details>
-<summary><b>🌐 外部项目 & 文档（4 个）</b> — 点击展开</summary>
+<summary><b>🌐 外部项目 & 文档（5 个）</b> — 点击展开</summary>
 
 | 名称 | 领域 | 描述 |
 |------|------|------|
@@ -178,6 +179,7 @@ claude
 | 📊 [CitationClaw](https://github.com/VisionXLab/CitationClaw) | 通用 | 引用影响力分析——论文标题 → 引用爬取、学者识别、HTML 报告 |
 | 🐾 [OpenClaw 适配指南](docs/OPENCLAW_ADAPTATION.md) | 通用 | 在 [OpenClaw](https://github.com/All-Hands-AI/OpenHands) 中使用 ARIS 工作流 |
 | 🎨 [`paper-illustration`](skills/paper-illustration/SKILL.md) | 通用 | AI 生成架构图（Gemini）。基于 [PaperBanana](https://github.com/dwzhu-pku/PaperBanana)，集成到工作流 3 |
+| 🤖 [`skills-codex`](skills/skills-codex/) | 通用 | 全部 24 个 ARIS skill 的 Codex CLI 版本，用 `spawn_agent` 替代 MCP。Codex 用户即插即用 |
 
 </details>
 
@@ -916,6 +918,7 @@ Skills 就是普通的 Markdown 文件，fork 后随意改：
 | **方案 C** | 任意 CC 兼容 | 任意 OpenAI 兼容 | 否 | 否 | [LLM_API_MIX_MATCH_GUIDE](docs/LLM_API_MIX_MATCH_GUIDE.md) |
 | **方案 D** | Kimi-K2.5 / Qwen3.5+ | GLM-5 / MiniMax-M2.5 | 否 | 否 | [ALI_CODING_PLAN_GUIDE](docs/ALI_CODING_PLAN_GUIDE.md) |
 | **方案 E** 🆓 | DeepSeek-V3.1 / Qwen3-Coder | DeepSeek-R1 / Qwen3-235B | 否 | 否 | [MODELSCOPE_GUIDE](docs/MODELSCOPE_GUIDE.md) |
+| **方案 F** | Codex CLI (GPT-5.4) | Codex `spawn_agent` (GPT-5.4) | 否 | 是 | [skills-codex/](skills/skills-codex/) |
 
 **方案 C** 已适配的提供商：GLM（Z.ai）、Kimi（Moonshot）、LongCat（美团）作为执行器；DeepSeek、MiniMax 作为审查器。任何 OpenAI 兼容 API 理论上均可通过通用 [`llm-chat`](mcp-servers/llm-chat/) MCP 服务器接入。**方案 D** 使用[阿里百炼 Coding Plan](https://bailian.console.aliyun.com/)——一个 API Key 包含 4 款模型（Kimi、Qwen、GLM、MiniMax），双端点配置。**方案 E** 使用 [ModelScope（魔搭社区）](https://www.modelscope.cn/)——**免费**（2000 次/天），一个 Key，无自动化限制。
 

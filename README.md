@@ -28,6 +28,7 @@ Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills for 
 
 ## 📢 What's New
 
+- **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🤖 **[Codex CLI native skills](skills/skills-codex/)** — all 24 ARIS skills rewritten for [OpenAI Codex CLI](https://github.com/openai/codex) using `spawn_agent` subagents (replaces MCP calls). Drop-in `skills/skills-codex/` directory + LaTeX templates. Community contribution by [@Falling-Flower](https://github.com/Falling-Flower)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 📝 **[`grant-proposal`](skills/grant-proposal/SKILL.md)** — Draft structured grant proposals from research ideas. Supports 9 agencies: KAKENHI (Japan), NSF (US), NSFC (China, incl. 面上/青年/优青/杰青/海外优青/重点), ERC (EU), DFG, SNSF, ARC, NWO, and generic. Chains `/research-lit` → `/novelty-check` → `/research-review` → `/paper-illustration`. Community contribution by [@dengzhe-hou](https://github.com/dengzhe-hou)
 - **2026-03-18** — ![NEW](https://img.shields.io/badge/NEW-red?style=flat-square) 🎨 **[`paper-illustration`](skills/paper-illustration/SKILL.md)** — AI-generated publication-quality architecture diagrams and method figures. Claude plans → Gemini renders → iterative refinement until score ≥ 9. Integrated into Workflow 3 (`illustration: true`, requires `GEMINI_API_KEY`). Built on [PaperBanana](https://github.com/dwzhu-pku/PaperBanana). Community contribution by [@Joseph-li343](https://github.com/Joseph-li343)
   <details><summary>Preview demo</summary><br><img src="assets/paper_illustration_demo.png" width="600" alt="paper-illustration demo" /></details>
@@ -150,7 +151,7 @@ Domain-specific skills and external projects contributed by the community. PRs w
 
 🎉 **Community Skills (8):** [research-refine](skills/research-refine/SKILL.md) · [experiment-plan](skills/experiment-plan/SKILL.md) · [grant-proposal](skills/grant-proposal/SKILL.md) · [proof-writer](skills/proof-writer/SKILL.md) · [comm-lit-review](skills/comm-lit-review/SKILL.md) · [dse-loop](skills/dse-loop/SKILL.md) · [idea-discovery-robot](skills/idea-discovery-robot/SKILL.md) · [paper-illustration](skills/paper-illustration/SKILL.md)
 
-🌐 **External Projects & Docs (4):** [open-source-hardening-skills](https://github.com/zeyuzhangzyz/open-source-hardening-skills) · [CitationClaw](https://github.com/VisionXLab/CitationClaw) · [OpenClaw Adaptation Guide](docs/OPENCLAW_ADAPTATION.md) · [paper-illustration](skills/paper-illustration/SKILL.md)
+🌐 **External Projects & Docs (5):** [open-source-hardening-skills](https://github.com/zeyuzhangzyz/open-source-hardening-skills) · [CitationClaw](https://github.com/VisionXLab/CitationClaw) · [OpenClaw Adaptation Guide](docs/OPENCLAW_ADAPTATION.md) · [paper-illustration](skills/paper-illustration/SKILL.md)
 
 > 🙌 Thanks to every contributor! We fold the tables below to keep the README readable — but every skill and project here is equally valued. PRs always welcome!
 
@@ -171,7 +172,7 @@ Domain-specific skills and external projects contributed by the community. PRs w
 </details>
 
 <details>
-<summary><b>🌐 External Projects & Docs (4)</b> — click to expand</summary>
+<summary><b>🌐 External Projects & Docs (5)</b> — click to expand</summary>
 
 | Name | Domain | Description |
 |------|--------|-------------|
@@ -179,6 +180,7 @@ Domain-specific skills and external projects contributed by the community. PRs w
 | 📊 [CitationClaw](https://github.com/VisionXLab/CitationClaw) | General | Citation impact analysis — input paper title → citation crawling, scholar identification, tiered analysis, HTML dashboard |
 | 🐾 [OpenClaw Adaptation Guide](docs/OPENCLAW_ADAPTATION.md) | General | Use ARIS workflow methodology in [OpenClaw](https://github.com/All-Hands-AI/OpenHands) — skill-to-stage mapping, file-based orchestration, no Claude Code CLI needed |
 | 🎨 [`paper-illustration`](skills/paper-illustration/SKILL.md) | General | AI-generated architecture diagrams via Gemini. Built on [PaperBanana](https://github.com/dwzhu-pku/PaperBanana). Integrated into Workflow 3 |
+| 🤖 [`skills-codex`](skills/skills-codex/) | General | All 24 ARIS skills rewritten for Codex CLI using `spawn_agent`. Drop-in replacement for Codex users |
 
 </details>
 
@@ -1031,6 +1033,7 @@ Don't have Claude / OpenAI API access? You can swap in other models — same cro
 | **Alt C** | Any CC-compatible | Any OpenAI-compatible | No | No | [LLM_API_MIX_MATCH_GUIDE](docs/LLM_API_MIX_MATCH_GUIDE.md) |
 | **Alt D** | Kimi-K2.5 / Qwen3.5+ | GLM-5 / MiniMax-M2.5 | No | No | [ALI_CODING_PLAN_GUIDE](docs/ALI_CODING_PLAN_GUIDE.md) |
 | **Alt E** 🆓 | DeepSeek-V3.1 / Qwen3-Coder | DeepSeek-R1 / Qwen3-235B | No | No | [MODELSCOPE_GUIDE](docs/MODELSCOPE_GUIDE.md) |
+| **Alt F** | Codex CLI (GPT-5.4) | Codex `spawn_agent` (GPT-5.4) | No | Yes | [skills-codex/](skills/skills-codex/) |
 
 **Alt C** supports tested providers: GLM (Z.ai), Kimi (Moonshot), LongCat (Meituan) as executors; DeepSeek, MiniMax as reviewers. Any OpenAI-compatible API should also work via the generic [`llm-chat`](mcp-servers/llm-chat/) MCP server. **Alt D** uses [Alibaba Coding Plan](https://bailian.console.aliyun.com/) — one API key for both executor and reviewer, 4 models included (Kimi, Qwen, GLM, MiniMax). **Alt E** uses [ModelScope](https://www.modelscope.cn/) — **free** (2000 calls/day), one key, no automation restrictions.
 

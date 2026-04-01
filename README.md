@@ -1416,6 +1416,7 @@ claude
 - [ ] **Workflow execution report** — after each workflow (1/1.5/2/3) completes, auto-generate a structured summary: what was done, key decisions made, experiments run, results obtained, scores, and time spent. Output as `WORKFLOW_REPORT.md` for progress tracking, team reporting, and supervisor updates
 - [x] **Document-based pipeline input** — `/idea-discovery` and `/research-pipeline` auto-detect `RESEARCH_BRIEF.md` in project root. Detailed context replaces one-line prompt. Template: `templates/RESEARCH_BRIEF_TEMPLATE.md`
 - [ ] **Auto hyperparameter tuning skill** — rewrite [auto-hparam-tuning](https://github.com/zxh0916/auto-hparam-tuning) as an ARIS SKILL.md. 5-step cycle: understand project → plan tuning strategy → run experiments → analyze metrics (TensorBoard/W&B) → learn and iterate. Would plug into Workflow 1.5 (`/experiment-bridge`) or Workflow 2 (`/auto-review-loop`) when reviewer says "tune hyperparameters"
+- [ ] **Plugin format** — package ARIS as a Claude Code Plugin for one-click install via `/plugin install aris`. Skills version continues for cross-platform compatibility (Codex CLI, Cursor, Trae, etc.)
 
 ## 💬 Community
 

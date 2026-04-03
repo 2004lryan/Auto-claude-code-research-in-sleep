@@ -296,6 +296,7 @@ Ready for Workflow 2:
 - **Don't wait forever.** If an experiment exceeds 2x its estimated time, flag it and move on to the next milestone.
 - **Budget awareness.** Track GPU-hours against the plan's budget. Warn if approaching the limit.
 - **Vast.ai lifecycle.** If using vast.ai instances, destroy them after all experiments complete and results are downloaded. Running instances cost money every second — don't leave them idle. Use `/vast-gpu destroy` or `/vast-gpu destroy-all` when done.
+- **Modal lifecycle.** If using `gpu: modal`, no cleanup is needed — Modal auto-scales to zero after each run. But always show cost estimates before running and verify the spending limit is set at https://modal.com/settings (NEVER through CLI).
 
 ## Composing with Other Skills
 

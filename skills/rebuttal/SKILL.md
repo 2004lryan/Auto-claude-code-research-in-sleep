@@ -143,7 +143,9 @@ If the strategy plan identifies issues that require new empirical evidence (tagg
 
 ### Phase 4: Draft Initial Rebuttal
 
-Create `rebuttal/REBUTTAL_DRAFT_v1.md`.
+Create the draft artifact(s) per `VENUE_MODE`:
+- `single_document` mode → one `rebuttal/REBUTTAL_DRAFT_v1.md`
+- `per_reviewer_thread` mode → one `rebuttal/Reviewer_<ID>_response.md` per reviewer (no top-level `REBUTTAL_DRAFT_v1.md`)
 
 **Structure depends on `VENUE_MODE`:**
 
@@ -187,7 +189,7 @@ Hard rules:
 - NEVER promise what user hasn't approved
 - If no strong evidence exists, say less not more
 
-Also generate `rebuttal/PASTE_READY.txt` (plain text, exact character count).
+**`single_document` mode only**: also generate `rebuttal/PASTE_READY.txt` (plain text, exact character count for the OpenReview/CMT paste field). In `per_reviewer_thread` mode skip this artifact — each `Reviewer_<ID>_response.md` is itself the paste target for its thread.
 
 Also generate `rebuttal/REVISION_PLAN.md` — the **overall revision checklist**.
 
@@ -309,7 +311,7 @@ When new reviewer comments arrive:
 - **Never overpromise.** Only promise what user explicitly approved.
 - **Full coverage.** Every reviewer concern tracked and accounted for.
 - **Preserve raw records.** Reviews and MCP outputs stored verbatim.
-- **Global + per-reviewer structure.** Shared concerns in opener.
+- **Structure follows `VENUE_MODE`.** `single_document` → global opener with shared concerns + per-reviewer numbered detail. `per_reviewer_thread` → no global opener; each reviewer file is self-contained.
 - **Answer friendly reviewers too.** Reinforce supportive framing.
 - **Meta-reviewer closing.** Summarize resolved/remaining/why accept.
 - **Evidence > rhetoric.** Derivations and numbers over prose.

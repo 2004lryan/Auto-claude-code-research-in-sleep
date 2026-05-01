@@ -423,10 +423,13 @@ This phase catches a specific class of bugs that Phase 3.5's "Statement-conclusi
 #### What this phase does NOT do
 - It does **not** fix drift automatically. The output is advisory; the executor or a follow-up `--deep-fix` run handles the rewrite.
 - It does **not** alter `details.issues`; restatement drift is reported as a sibling field, so existing consumers reading `issues[]` see no schema change.
-- It does **not** alter the top-level `verdict` decision rule. A paper with non-empty `restatement_drift` may still emit `PASS` if all proof obligations are otherwise discharged; the drift is independent of proof correctness. (The reviewer may choose to flip MAJOR drift into the `issues` list as well, but that is a per-issue judgment, not an automatic rule.)
+- It does **not** alter the top-level `verdict` decision rule. A paper with non-empty `restatement_drift` may still emit `PASS` if all proof obligations are otherwise discharged; the drift is independent of proof correctness. (The reviewer may at its discretion mirror a **CRITICAL**-severity drift into the `issues` list as a regular issue — typically when the restated version is used downstream as if it were canonical — but that is a per-issue judgment, never an automatic rule. MAJOR or MINOR drift never mirrors into `issues`.)
 
 #### Failure mode
-If `--restatement-check` is set but the cross-location scan cannot complete (e.g. unreadable `.tex`, ambiguous label resolution), emit `details.restatement_drift: []` plus `details.restatement_check_status: "unavailable"` with a one-line note. Verifier gates and downstream skills MUST treat `"unavailable"` identically to the field being absent: not blocking. Phases 1 / 1.5 / 2 / 3 / 3.5 / 3.9 / 4 / 5 still run normally.
+If `--restatement-check` is set but the cross-location scan cannot complete, emit `details.restatement_drift: []` plus `details.restatement_check_status: "unavailable"` with a one-line note explaining why. Verifier gates and downstream skills MUST treat `"unavailable"` identically to the field being absent: not blocking. Phases 1 / 1.5 / 2 / 3 / 3.5 / 3.9 / 4 / 5 still run normally. Cases that trigger this fallback include:
+- Unreadable `.tex` (parser / encoding error on a file that contains a theorem block).
+- Ambiguous label resolution (e.g., the same `\label{thm:foo}` appears more than once with no clear canonical pick).
+- **No labeled canonical theorem-like block found** (the algorithm only inspects `\begin{theorem|lemma|proposition|corollary}` blocks with an explicit `\label{...}`; if there is no such block, there is nothing to compare restatements against).
 
 ### Phase 3.9: Unrecoverable Proof Protocol
 

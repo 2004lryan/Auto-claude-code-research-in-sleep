@@ -65,6 +65,8 @@ Output a flat list of `(key, file, line, surrounding_sentence)` tuples.
 
 Also build the inverse: for each bib entry, the list of all places it is cited.
 
+Define two protocol sets used throughout the rest of the workflow: `cited_keys` is the set of unique cite keys appearing in any `\cite{...}` invocation across the audited `*.tex` files (de-duplicated), and `bib_keys` is the set of keys parsed from the audited bib file(s). `cited_keys` drives Step 3 (audit only cited entries); `bib_keys \ cited_keys` is the uncited residual surfaced by the `--uncited` opt-in.
+
 If the user passed `--uncited`, also compute the set difference `bib_keys \ cited_keys` here and stash it for use in Steps 5 and the JSON aggregation; see "Uncited Entry Detection (opt-in)" below for the protocol. The set-diff is a string operation only and does not consume reviewer budget.
 
 Save the extracted contexts to `paper/.aris/citation-audit/contexts.txt` so the reviewer can read it directly. Use the paper-dir-relative path `.aris/citation-audit/contexts.txt` when recording the file in `audited_input_hashes`; do not stage under `/tmp` or other transient locations that the verifier cannot rehash later.
@@ -331,7 +333,7 @@ The artifact conforms to the schema in `shared-references/assurance-contract.md`
   "reviewer_reasoning": "xhigh",
   "generated_at":     "<UTC ISO-8601>",
   "details": {
-    "total_entries":  <int>,
+    "total_entries":  <int>,                 // count of audited cited entries (= |cited_keys|), NOT the bib-file size
     "per_entry":      [ { "key": "madaan2023selfrefine",
                           "verdict": "KEEP | FIX | REPLACE | REMOVE",
                           "axis_failures": [ "CONTEXT" | "METADATA" | "EXISTENCE" ],
